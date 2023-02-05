@@ -1,0 +1,180 @@
+.swal-button--confirm,
+.swal-button--confirm:hover {
+  font-weight: normal;
+  background-color: #7845c4 !important;
+}
+
+.swal-button--cancel {
+  font-weight: normal;
+  background-color: #edf2f9 !important;
+}
+
+.eq-navbar-dark {
+  background-color: #7845c4;
+}
+
+.btn-eq-primary {
+  background-color: #7845c4;
+  color: white;
+}
+
+.btn-eq-primary:hover {
+  color: white;
+}
+
+.brand-img-lg {
+  max-height: 1.8rem !important;
+}
+
+.dropdown-menu-right-align {
+  right: 0;
+}
+
+.mfa-code {
+  line-height: 1;
+  text-align: center;
+  font-size: 48px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* .nav-link.eq-nav-link {
+  color:#BEBEBE !important;
+}
+.nav-link.eq-nav-link:hover{
+  color:#fff!important
+}
+
+.nav-link.eq-nav-link.active {
+  color:#fff !important 
+} */
+
+.nav-link.eq-nav-link.active::before {
+  border-bottom: 1px solid #f6c343 !important;
+}
+
+.sweet-warning {
+  background-color: #00b86b !important;
+}
+
+.sweet-warning:hover {
+  background-color: #10935c;
+}
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+  margin: 16px 0px;
+  border-width: 2;
+  border-radius: 2;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  background-color: #7845c4;
+}
+
+.nav-link {
+  color: #6c757d;
+}
+
+
+.form-check-input[disabled]~.form-check-label,
+.form-check-input:disabled~.form-check-label {
+  opacity: 1 !important;
+}
+
+.issuer-logo {
+  position: relative;
+  display: inline-block;
+  width: 6rem !important;
+  height: 6rem !important;
+  font-size: 1rem;
+}
+
+.issuer-logo-height {
+  width: auto !important;
+  height: 50px !important;
+}
+
+.react-datepicker__navigation--years-upcoming {
+  background-image: url('../img/arrowhead-up-24px.png') !important;
+  top: 0px !important;
+  width: 24px !important;
+  height: 20px !important;
+}
+
+.react-datepicker__navigation--years-previous {
+  background-image: url('../img/arrowhead-down-24px.png') !important;
+  top: -2px !important;
+  width: 24px !important;
+  height: 20px !important;
+}
+
+.react-datepicker__navigation--years {
+  top: -2px !important;
+}
+
+.react-datepicker__year-option {
+  user-select: none !important;
+}
+
+.multipleLine .tooltip-inner {
+  white-space: normal;
+  position: relative;
+  max-width: 30%;
+}
+
+.OneLine .tooltip-inner {
+  white-space: normal;
+  max-width: fit-content;
+  position: relative;
+}
+
+.disable {
+  color: #95AAC9;
+}
+
+.enable {
+  color: black;
+}
+
+@media (min-width: 300px) and (max-width:1050px) {
+  .TwoLine .tooltip-inner {
+    white-space: normal;
+    max-width: min-content;
+    position: top;
+  }
+}
+
+.noDataExist {
+  text-align: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.fe-save,
+.fe-edit {
+  cursor: pointer;
+}
+
+@media print {
+  @page {
+    size: A4;
+    /* DIN A4 standard, Europe */
+    margin: 30px;
+  }
+}
