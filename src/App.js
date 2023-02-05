@@ -1,4 +1,3 @@
-import './App.css';
 import { GlobalStyles } from './styles/global';
 import jsPDF from 'jspdf'
 import naruto from '../src/images/641612.jpg'
