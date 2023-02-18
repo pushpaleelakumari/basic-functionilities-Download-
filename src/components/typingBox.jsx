@@ -1,4 +1,5 @@
 import React, { createRef, useEffect, useRef, useState } from 'react'
+import UpperMenu from './upperMenu';
 
 function TypingBox({ words }) {
     // console.log(words)
@@ -6,6 +7,9 @@ function TypingBox({ words }) {
 
     const [currWordIndex, setCurrWordIndex] = useState(0);
     const [currCharIndex, setCurrCharIndex] = useState(0);
+    const [countDown, setCountDown] = useState(15);
+    const [testStart, setTestStart] = useState(false)
+    const [testOver, setTestOver] = useState(false);
 
 
     //this is referencing the all 50 words in the span
@@ -13,9 +17,33 @@ function TypingBox({ words }) {
     const wordSpanRef = Array(words.length).fill(0).map(i => createRef());
 
 
-    const textInputRef = useRef(null)
+    const textInputRef = useRef(null);
+
+    const startTimer = () => {
+
+        const intervalId = setInterval(timer, 1000);
+
+        function timer() {
+            console.log('works')
+            setCountDown((prevCountDown) => {
+
+                if (prevCountDown === 1) {
+                    clearInterval(intervalId);
+                    setCountDown(0);
+                    setTestOver(true)
+                }
+                else {
+                    return prevCountDown - 1
+                }
+            });
+        }
+    }
 
     const handleKeyDown = (e) => {
+        if (!testStart) {
+            startTimer();
+            setTestStart(true);
+        }
         let key = e.key;
         // console.log('keyPressed', key)
 
@@ -52,7 +80,7 @@ function TypingBox({ words }) {
                 if (currCharIndex === allSpans.length) {
                     if (allSpans[currCharIndex - 1].className.includes('extra')) {
                         allSpans[currCharIndex - 1].remove();
-                        allSpans[currCharIndex - 1].className += ' right'
+                        allSpans[currCharIndex - 2].className += ' right'
                     }
                     else {
                         allSpans[currCharIndex - 1].className = 'char current'
@@ -116,36 +144,57 @@ function TypingBox({ words }) {
         textInputRef.current.focus()
     }
 
+
+
     useEffect(() => {
         focusInput();
         wordSpanRef[0].current.querySelectorAll('span')[0].className = 'char current'
-
+        // button.eventListner;
+        // return ()=>{
+        //     button.removeEvent
+        // }
     }, [])
 
-    // console.log(textInputRef)
+    const callbackTime = (time) => {
+        setCountDown(time)
+    }
+
+    // console.log(textInputRef) 
 
     return (
         <>
-            <div className="type-box" onClick={focusInput}>
-                <div className="words" >
-                    {words.map((word, index) => (
-                        <span className="word" ref={wordSpanRef[index]}>
-                            {word.split('').map((char, ind) => (
-                                <span className="char">
-                                    {char}
+            <UpperMenu countDown={countDown} updateTime2={callbackTime} /><br />
+            {/* <h3>{countDown} s</h3> */}
+            {!testOver ? (
+                <>
+                    <div className="type-box" onClick={focusInput}>
+                        <div className="words" >
+                            {words.map((word, index) => (
+                                <span className="word" ref={wordSpanRef[index]}>
+                                    {word.split('').map((char, ind) => (
+                                        <span className="char">
+                                            {char}
+                                        </span>
+                                    ))}
                                 </span>
                             ))}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            <input type="text"
-                className='hidden-input'
-                ref={textInputRef}
-                onKeyDown={(e) => handleKeyDown(e)}
-                onKeyUp={(e) => handleKeyUp(e)}
-            />
+                        </div>
+                    </div>
+                    <input type="text"
+                        className='hidden-input'
+                        ref={textInputRef}
+                        onKeyDown={(e) => handleKeyDown(e)}
+                        onKeyUp={(e) => handleKeyUp(e)}
+                    />
+                </>
+            )
+                :
+                (
+                    <>
+                        <h1>Time Over</h1>
+                    </>
+                )
+            }
         </>
     )
 }

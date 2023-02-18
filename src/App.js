@@ -9,9 +9,9 @@ function App() {
 
   return (
     <>
-      <div className='canvas'>
+      <div className='w-100 canvas'>
         <GlobalStyles />
-        <h1 className='heading' style={{ textAlign: 'center' }}>Typing website</h1>
+        <h1 className='d-flex flex-column' style={{ textAlign: 'center' }}>Typing website</h1>
         <TypingBox words={words} />
         <h1 style={{ textAlign: 'center' }}>Footer</h1>
       </div>

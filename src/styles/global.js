@@ -107,5 +107,19 @@ animation-timing-function: ease;
     }
 }
 
+.upper-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.time:hover{
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
+
 `
 
