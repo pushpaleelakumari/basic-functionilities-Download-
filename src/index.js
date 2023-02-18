@@ -6,8 +6,6 @@ import { GameModeContextProvider } from './context/gameModes';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GameModeContextProvider >
-      <App />
-    </GameModeContextProvider>
+    <App />
   </React.StrictMode>
 );
