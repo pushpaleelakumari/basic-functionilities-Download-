@@ -1,7 +1,10 @@
 import React from 'react'
+import { useGameMode } from '../context/gameModes';
 
 function UpperMenu({ countDown, updateTime2 }) {
 
+    const data = useGameMode();
+    console.log(data);
     const updateTime = (e) => {
         // console.log(e.target.id);
         updateTime2(e.target.id);
